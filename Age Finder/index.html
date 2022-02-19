@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Age Finder</title>
-    
+    <script src="main.js"></script>
   <style>
 
         body {
@@ -62,28 +62,6 @@
 
 </head>
 
-<script>
-
-    function takedata(){
-        var date=document.getElementById("Date").value;
-        var dob = new Date(date);  
-        //calculate month difference from current date in time  
-        var month_diff = Date.now() - dob.getTime();  
-        
-        //convert the calculated difference in date format  
-        var age_dt = new Date(month_diff);   
-        
-        //extract year from date      
-        var year = age_dt.getUTCFullYear();  
-        
-        //now calculate the age of the user  
-        var age = Math.abs(year - 1970);  
-        
-        //display the calculated age  
-        window.alert("Age of the date entered: " + age + " years");
-        location.reload();
-    }
-</script>
 
 <body>
     <form>
