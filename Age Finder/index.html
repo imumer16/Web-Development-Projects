@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Finder</title>
+    
+  <style>
+
+        body {
+          background-image: url('background.jpg');
+            width:auto;
+            height: auto;
+        }
+
+        form {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+        }
+
+        .button {
+            position: relative;
+            left: 15%;
+            border-radius: 50%;
+            background-color: #4CAF50;
+            border: none;
+            font-size: 28px;
+            color: #FFFFFF;
+            padding: 20px;
+            width: 100px;
+            text-align: center;
+            transition-duration: 0.4s;
+            text-decoration: none;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .button:after {
+            content: "";
+            background: #f1f1f1;
+            display: block;
+            position: absolute;
+            padding-top: 300%;
+            padding-left: 350%;
+            margin-left: -20px !important;
+            margin-top: -120%;
+            opacity: 0;
+            transition: all 0.8s
+        }
+
+        .button:active:after {
+            padding: 0;
+            margin: 0;
+            opacity: 1;
+            transition: 0s
+        }
+    </style>
+
+</head>
+
+<script>
+
+    function takedata(){
+        var date=document.getElementById("Date").value;
+        var dob = new Date(date);  
+        //calculate month difference from current date in time  
+        var month_diff = Date.now() - dob.getTime();  
+        
+        //convert the calculated difference in date format  
+        var age_dt = new Date(month_diff);   
+        
+        //extract year from date      
+        var year = age_dt.getUTCFullYear();  
+        
+        //now calculate the age of the user  
+        var age = Math.abs(year - 1970);  
+        
+        //display the calculated age  
+        window.alert("Age of the date entered: " + age + " years");
+        location.reload();
+    }
+</script>
+
+<body>
+    <form>
+        <input type="date" name="Date" id="Date" required />
+        
+        <br><br>
+        <button class="button" type="button" onclick="takedata()">Find</button>
+        <br>
+        
+    </form>
+</body>
+
+</html>
